@@ -7,8 +7,8 @@ public class spawnManager : MonoBehaviour
    
     public float spawnPoint = 35;
 
-    public float startDelay = 2f;
-    public float repeatRate = 2f;
+    private float startDelay = 3f;
+    private float repeatRate = 2f;
 
     public playerController playerControllerScript;
 
@@ -24,14 +24,8 @@ public class spawnManager : MonoBehaviour
         InvokeRepeating("spawnObstacle", startDelay, repeatRate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
 
-    public void spawnObstacle()
+    private void spawnObstacle()
     {
         if (!playerControllerScript.isGameOver)
         {

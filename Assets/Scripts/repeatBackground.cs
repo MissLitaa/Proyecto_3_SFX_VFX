@@ -10,15 +10,19 @@ public class repeatBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Guardamos la posición inicial del fondo.
         startPosition = transform.position;
+
+        //Calcula la mitad exacta del fondo.
         repeatWidth = GetComponent<BoxCollider>().size.x / 2;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < startPosition.x - 56.4)
+        //Cuando nuestro fondo se desplaza la mitad de su anchura hacia la izquierda, repetimos la imagen.
+        if (transform.position.x < startPosition.x - repeatWidth)
         {
+            //Volvemos a la posición inicial.
             transform.position = startPosition;
         }
     }

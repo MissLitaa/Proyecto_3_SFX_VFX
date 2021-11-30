@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class moveLeft : MonoBehaviour
 {
-    public float objectSpeed = 10;
+    private float objectSpeed = 10;
     private playerController playerControllerScript;
-    // Start is called before the first frame update
+    private float lowerLimit = -1;
+   
     void Start()
     {
+        //Nos comunicamos con el script PlayerController
         playerControllerScript = GameObject.Find("Player").GetComponent<playerController>();
     }
 
@@ -20,7 +22,7 @@ public class moveLeft : MonoBehaviour
             transform.Translate(Vector3.left * objectSpeed * Time.deltaTime);
         }
 
-        if (transform.position.y < -1)
+        if (transform.position.y < lowerLimit)
         {
             Destroy(gameObject);
         }
